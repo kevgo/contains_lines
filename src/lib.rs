@@ -1,4 +1,4 @@
-pub fn contains_lines<'a, 'b>(have: &'a str, want: &'b str) -> Vec<&'a str> {
+pub fn contains_lines<'a>(_have: &'a str, _want: &str) -> Vec<&'a str> {
     vec![]
 }
 
