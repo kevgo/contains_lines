@@ -9,13 +9,38 @@
 /// But if and we want to know which lines are missing.
 ///
 /// ```
+/// use contains_lines::contains_lines;
+///
 /// let have = "one\ntwo\nthree";
 /// let want = "one\nthree\nfour";
 /// let result = contains_lines(have, want);
 /// assert_eq!(result, vec!["four"]);
 /// ```
-pub fn contains_lines<'a>(_have: &'a str, _want: &str) -> Vec<&'a str> {
-    vec![]
+pub fn contains_lines<'a>(have: &str, want: &'a str) -> Vec<&'a str> {
+    let have_lines: Vec<&str> = have.lines().collect();
+    let want_lines: Vec<&str> = want.lines().collect();
+
+    let mut missing = Vec::new();
+    let mut have_idx = 0;
+
+    for want_line in want_lines {
+        let start_idx = have_idx;
+        let mut found = false;
+        while have_idx < have_lines.len() {
+            if have_lines[have_idx] == want_line {
+                found = true;
+                have_idx += 1;
+                break;
+            }
+            have_idx += 1;
+        }
+        if !found {
+            have_idx = start_idx;
+            missing.push(want_line);
+        }
+    }
+
+    missing
 }
 
 #[cfg(test)]
@@ -60,10 +85,10 @@ mod tests {
 
     #[test]
     fn out_of_order() {
-        let left = "one\ntwo";
-        let right = "two\none";
+        let left = "one\ntwo\nthree";
+        let right = "three\ntwo\none";
         let have = contains_lines(left, right);
-        let want: Vec<&str> = vec!["one"];
+        let want: Vec<&str> = vec!["two", "one"];
         assert_eq!(have, want);
     }
 }
