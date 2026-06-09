@@ -9,6 +9,7 @@ extend-enable = [
 # Additional rules to disable on top of the disable list (additive)
 extend-disable = [
   "MD036", # convert emphasis to heading
+  "MD041", # first line in file should be a top level heading
 ]
 
 exclude = [".github", "tools", "CHANGELOG.md"]
