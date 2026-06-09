@@ -1,6 +1,12 @@
 [package]
 name = "contains_lines"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2024"
+description = "checks if one string contains all lines of another string"
+include = ["src/", "LICENSE.md", "README.md"]
+license = "ISC"
+readme = "README.md"
+repository = "https://github.com/kevgo/contains_lines"
+rust-version = "1.91"
 
 [dependencies]
