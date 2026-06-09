@@ -4,13 +4,13 @@
   - update [CHANGELOG.md](CHANGELOG.md)
   - update all occurrences of `0.0.1`
   - ship into `main`
+
 - create a new tag:
 
   ```bash
   git checkout main && git tag v0.0.1 && git push --tags
   ```
 
-- the CI server creates the release fully automatically
 - publish to crates.io:
 
   ```sh
