@@ -1,3 +1,19 @@
+/// Check if the `have` string contains all lines of the `want` string.
+///
+/// # Examples
+///
+/// Let's say we _have_ terminal output,
+/// and we _want_ to check if all documented lines were printed.
+/// The terminal output can contain more lines than we want to check for,
+/// we ignore those.
+/// But if and we want to know which lines are missing.
+///
+/// ```
+/// let have = "one\ntwo\nthree";
+/// let want = "one\nthree\nfour";
+/// let result = contains_lines(have, want);
+/// assert_eq!(result, vec!["four"]);
+/// ```
 pub fn contains_lines<'a>(_have: &'a str, _want: &str) -> Vec<&'a str> {
     vec![]
 }
