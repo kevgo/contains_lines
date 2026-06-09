@@ -57,4 +57,13 @@ mod tests {
         let want: Vec<&str> = vec!["three", "four"];
         assert_eq!(have, want);
     }
+
+    #[test]
+    fn out_of_order() {
+        let left = "one\ntwo";
+        let right = "two\none";
+        let have = contains_lines(left, right);
+        let want: Vec<&str> = vec!["one"];
+        assert_eq!(have, want);
+    }
 }
