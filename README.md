@@ -1,10 +1,16 @@
-# Contains_lines
+# `contains_lines`
 
-A Rust library for checking if one string contains all lines of another string.
+A Rust library for comparing multiline strings
+while allowing extra lines on the left side.
 
-Example: You write a test for output like log files or terminal output.
-Your test specifies lines that the output must contain.
-The test should pass if the output contains other lines mixed in.
+This is useful for testing output that may contain nondeterministic
+or irrelevant lines, such as logs or terminal output.
+Your expected value on the right lists the lines that must appear.
+The comparison succeeds when those lines occur in the actual output,
+in the same order as on the right, even if other lines appear between them.
+
+The comparison fails if a required line is missing or appears out of order.
+
 
 ```rs
 use contains_lines::contains_lines;
