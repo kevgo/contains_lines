@@ -1,3 +1,5 @@
+use regex::Regex;
+
 /// Check if `have` contains lines that match every pattern in `want`, in order.
 ///
 /// Each line of `want` is a regular expression. A pattern matches a line of `have`
@@ -27,8 +29,7 @@ pub fn contains_lines_matching<'a>(
     let want_lines: Vec<&str> = want.lines().collect();
     let patterns = want_lines
         .iter()
-        .copied()
-        .map(regex::Regex::new)
+        .map(|pattern| Regex::new(pattern))
         .collect::<Result<Vec<_>, _>>()?;
 
     let mut missing = Vec::new();
