@@ -2,13 +2,13 @@
 
 - in a branch:
   - update [CHANGELOG.md](CHANGELOG.md)
-  - update all occurrences of `0.0.1`
+  - update all occurrences of `0.0.2`
   - ship into `main`
 
 - create a new tag:
 
   ```bash
-  git checkout main && git tag v0.0.1 && git push --tags
+  git checkout main && git tag v0.0.2 && git push --tags
   ```
 
 - publish to crates.io:
