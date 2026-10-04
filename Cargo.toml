@@ -1,6 +1,6 @@
 [package]
 name = "contains_lines"
-version = "0.0.1"
+version = "0.0.2"
 edition = "2024"
 description = "checks if one string contains all lines of another string"
 include = ["src/", "LICENSE.md", "README.md"]
