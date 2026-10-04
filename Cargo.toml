@@ -10,3 +10,4 @@ repository = "https://github.com/kevgo/contains_lines"
 rust-version = "1.91"
 
 [dependencies]
+regex = "1.13.1"
