@@ -57,6 +57,15 @@ mod tests {
     }
 
     #[test]
+    fn equal_windows() {
+        let left = "one\r\ntwo\r\nthree";
+        let right = "one\ntwo\nthree";
+        let have = contains_lines(left, right);
+        let want: Vec<&str> = vec![];
+        assert_eq!(have, want);
+    }
+
+    #[test]
     fn left_contains_more() {
         let left = "one\ntwo\nthree\nfour\nfive";
         let right = "one\nthree\nfour";
